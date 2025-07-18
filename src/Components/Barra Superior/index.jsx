@@ -6,8 +6,9 @@ import MenuLateral from '../Menu Lateral';
 const BarraSuperior = () => {
     const [estaAtivo, setEstaAtivo] = useState(false)
     return (
-        <S.Menu>
-            <div 
+    <>
+        <S.Menu menuAberto={estaAtivo}>
+            <S.BotaoHamburguer 
                 onClick={() => setEstaAtivo(!estaAtivo)} 
                 className={`hamburger hamburger--elastic-r ${estaAtivo ? 'is-active' : ''}`}
                 tabIndex="0"
@@ -17,10 +18,14 @@ const BarraSuperior = () => {
                 <div className="hamburger-box">
                     <div className="hamburger-inner"></div>
                 </div>
-            </div>
-            {estaAtivo ? <MenuLateral></MenuLateral> : ''}
-        </S.Menu>
-    )
+            </S.BotaoHamburguer >
+            
+        </S.Menu> 
+        <S.Sidebar menuAberto={estaAtivo}>
+            <MenuLateral></MenuLateral>
+        </S.Sidebar> 
+    </>
+           )
 }
 
 export default BarraSuperior;

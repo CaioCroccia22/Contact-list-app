@@ -4,7 +4,7 @@ const MenuLateral = () => {
     return (
         <S.barraLateral>
             <S.Titulo>
-                    <h1>Olá, seja bem Vindo</h1>
+                    <h1>Bem Vindo!!</h1>
             </S.Titulo>
             <div>
                 <nav>
