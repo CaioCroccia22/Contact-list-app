@@ -1,16 +1,15 @@
 import 'hamburgers/dist/hamburgers.min.css';
-import { useState } from 'react';
 import * as S from './style'
 import MenuLateral from '../Menu Lateral';
 
-const BarraSuperior = () => {
-    const [estaAtivo, setEstaAtivo] = useState(false)
+const BarraSuperior = ( {onMenuClick, menuAberto, setMenuAberto}) => {
+    
     return (
     <>
-        <S.Menu menuAberto={estaAtivo}>
+        <S.Menu menuAberto={menuAberto}>
             <S.BotaoHamburguer 
-                onClick={() => setEstaAtivo(!estaAtivo)} 
-                className={`hamburger hamburger--elastic-r ${estaAtivo ? 'is-active' : ''}`}
+                onClick={() => setMenuAberto(!menuAberto)} 
+                className={`hamburger hamburger--elastic-r ${menuAberto ? 'is-active' : ''}`}
                 tabIndex="0"
                 aria-label="Menu" 
                 role="button" 
@@ -21,8 +20,8 @@ const BarraSuperior = () => {
             </S.BotaoHamburguer >
             
         </S.Menu> 
-        <S.Sidebar menuAberto={estaAtivo}>
-            <MenuLateral></MenuLateral>
+        <S.Sidebar menuAberto={menuAberto}>
+            <MenuLateral onMenuClick={onMenuClick}></MenuLateral>
         </S.Sidebar> 
     </>
            )

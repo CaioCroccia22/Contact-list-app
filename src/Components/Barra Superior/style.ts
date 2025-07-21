@@ -15,7 +15,7 @@ display: flex;
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out; 
-  transform: ${({ menuAberto }) => (menuAberto ? 'translateX(270px)' : 'translateX(0)')};
+  transform: ${({ menuAberto }) => (menuAberto ? 'translateX(300px)' : 'translateX(0)')};
   z-index: 900;
 
 `
@@ -29,10 +29,14 @@ export const BotaoHamburguer = styled.div<Props>`
 
 
 export const Sidebar = styled.div<Props>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
-  width: 270px; 
+  width: 300px; 
   height: 100%;
   background-color: ${colors.cinza}; 
   color: white;
