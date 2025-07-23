@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import BarraSuperior from '../Barra Superior';
 import * as S from './style'
- 
+import { useSelector } from 'react-redux'; 
+
 
 
  const listaDeContato = () => {
+    const contatosCadastrados = useSelector((state) => state.contatoReducer)
 
     const [menuAberto, setMenuAberto] = useState(false)
 
@@ -18,15 +20,28 @@ import * as S from './style'
                 <S.TabelaContato>
                     <S.Titulo>Contatos</S.Titulo>
                     <S.CabecalhoTabela>
-                        <tr><th>ID</th></tr>
-                        <tr><th>Nome</th></tr>
-                        <tr><th>Endereço</th></tr>
-                        <tr><th>Email</th></tr>
-                        <tr><th>Telefone</th></tr>
-                        <tr><th>Editar/Excluir</th></tr>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Endereco</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
+                            <th>Editar/Excluir</th>
+                        </tr>
                     </S.CabecalhoTabela>
                     <S.CorpoTabela>
-                        <tr><tb>Teste</tb></tr>
+                        {contatosCadastrados.itens.map((item) => (
+                        <tr key={item.id}>
+                            <th>{item.id}</th>
+                            <td>{item.nome}</td>
+                            <td>{item.endereco}</td>
+                            <td>{item.email}</td>
+                            <td>{item.telefone}</td>
+                            <td>
+                            <button>Editar</button>
+                            <button>Excluir</button>
+                            </td>
+                        </tr>))}
                     </S.CorpoTabela>
                 </S.TabelaContato>
 

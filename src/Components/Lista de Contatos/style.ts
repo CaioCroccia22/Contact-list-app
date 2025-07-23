@@ -24,7 +24,7 @@ export const PaginaLista = styled.div<Props>`
 
 `
 
-export const Titulo = styled.div<Props>`
+export const Titulo = styled.caption<Props>`
     font-size: 24px;
     padding: 20px 0px 20px 0px;
 

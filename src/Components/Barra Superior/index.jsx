@@ -2,6 +2,7 @@ import 'hamburgers/dist/hamburgers.min.css';
 import * as S from './style'
 import MenuLateral from '../Menu Lateral';
 
+
 const BarraSuperior = ( {onMenuClick, menuAberto, setMenuAberto}) => {
     
     return (
