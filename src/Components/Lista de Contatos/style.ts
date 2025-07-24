@@ -30,44 +30,46 @@ export const Titulo = styled.caption<Props>`
 
 `
 
-export const TabelaContato = styled.table`
+export const TabelaContato = styled.table<Props>`
     background-color: ${colors.azulClaro};
     border-radius: 20px;
-    width: 80%;
-    display: flex;
+    width: ${({menuAberto}) => (menuAberto ? '70%' : '80%')};
     align-items: center;
-    flex-direction: column;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
     // justify-content: center;
 `
 
-export const CabecalhoTabela = styled.thead`
-    display: flex;
-    width: 80%;
-    justify-content: space-between;
-    // gap: 150px;
-
-    th {
-        font-size: 14px;
-        font-family: Inter;
-    }
+export const CabecalhoTabela = styled.thead<Props>`
+   tr{
+        background-color: red;
+        width: 100%;
+   }
+        th {
+            width: ${({menuAberto}) => (menuAberto ? '12.00%' : '16.66%')}; 
+            padding: 12px;
+            background-color: #f0f0f0;
+            border-bottom: 2px solid #ddd;
+            font-weight: bold;
+            overflow: hidden; /* Evita que conteúdo longo quebre o layout */
+            text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
+            white-space: nowrap; /* Impede quebras de linha */
+        }
+    
 
 `
 
 
-export const CorpoTabela = styled.tbody`
-    display: flex;
-    width: 80%;
-    justify-content: space-between;
-    padding-top: 30px;
-    
-    tr{
-        padding-top: 20px;
-    }
-
-    th {
-        font-size: 14px;
-        font-family: Inter;
-        
-    }
-
+export const CorpoTabela = styled.tbody<Props>`
+ td {
+    width: ${({menuAberto}) => (menuAberto ? '12.00%' : '16.66%')}; 
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 `

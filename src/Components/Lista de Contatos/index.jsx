@@ -32,7 +32,7 @@ import { useSelector } from 'react-redux';
                     <S.CorpoTabela>
                         {contatosCadastrados.itens.map((item) => (
                         <tr key={item.id}>
-                            <th>{item.id}</th>
+                            <td>{item.id}</td>
                             <td>{item.nome}</td>
                             <td>{item.endereco}</td>
                             <td>{item.email}</td>
