@@ -15,7 +15,7 @@ display: flex;
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out; 
-  transform: ${({ menuAberto }) => (menuAberto ? 'translateX(300px)' : 'translateX(0)')};
+  transform: ${({ menuAberto }) => (menuAberto ? 'translateX(350px)' : 'translateX(0)')};
   z-index: 900;
 
 `
@@ -36,7 +36,7 @@ export const Sidebar = styled.div<Props>`
   position: fixed;
   top: 0;
   left: 0;
-  width: 300px; 
+  width: 350px; 
   height: 100%;
   background-color: ${colors.cinza}; 
   color: white;

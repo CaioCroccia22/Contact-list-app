@@ -12,11 +12,9 @@ export const barraLateral = styled.div<Props>`
     align-itens: center;
     top: 0;
     left: 0;
-    // max-height: 80vh;
-    margin-top: 20px;
     height: 100vh;
     width: 100%;
-    background-color: ${colors.cinza};
+    background-color: ${colors.preto};
     position: fixed;
     transition: transform 0.3s ease-in-out;
 `
@@ -26,7 +24,7 @@ export const Titulo = styled.div`
     align-itens: center;
     justify-content: center;
     height: 10vh;
-    // background-color: ${colors.azul};
+    background-color: ${colors.azul};
     // margin: 0px 0px 30px 30px;
     font-size: 16px;
 `
@@ -39,33 +37,30 @@ export const Navegacao = styled.nav`
 `
 
 export const Lista = styled.ul`
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-itens: center;
-    width: 70%;
+    width: 100%;
     height: 35%;
-
-    a:hover {
-        background-color: ${colors.brancoEscuro};
-        border-radius: 6%;
-        padding: 3px 15px 3px 15px;
-        color: ${colors.cinza}
-     }
+    // padding: 0px 10px 0px 10px;
     
 `
 
 
-export const listElement = styled.div`
+export const listElement = styled.li`
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 0px 50px 0px 50px;
+    color: white;
     
     img{ 
         height: 40px;
         width: 40px;
-        // margin-right: 40px;
+        
      }
 
 `

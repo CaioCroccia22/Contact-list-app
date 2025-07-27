@@ -16,11 +16,11 @@ export const PaginaLista = styled.div<Props>`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: ${({ menuAberto }) => (menuAberto ? '92%' : '100%')};;
+    width: ${({ menuAberto }) => (menuAberto ? '88%' : '100%')};;
     position: fixed;
     top: 80px;
     transition: transform 0.3s ease-in-out; 
-    transform: ${({ menuAberto }) => (menuAberto ? 'translateX(200px)' : 'translateX(0)')};
+    transform: ${({ menuAberto }) => (menuAberto ? 'translateX(250px)' : 'translateX(0)')};
 
 `
 
@@ -33,7 +33,7 @@ export const Titulo = styled.caption<Props>`
 export const TabelaContato = styled.table<Props>`
     background-color: ${colors.azulClaro};
     border-radius: 20px;
-    width: ${({menuAberto}) => (menuAberto ? '70%' : '80%')};
+    width: ${({menuAberto}) => (menuAberto ? '60%' : '80%')};
     align-items: center;
     table-layout: fixed;
     border-collapse: collapse;
@@ -48,7 +48,7 @@ export const CabecalhoTabela = styled.thead<Props>`
         width: 100%;
    }
         th {
-            width: ${({menuAberto}) => (menuAberto ? '12.00%' : '16.66%')}; 
+            width: ${({menuAberto}) => (menuAberto ? '10.00%' : '16.66%')}; 
             padding: 12px;
             background-color: #f0f0f0;
             border-bottom: 2px solid #ddd;
@@ -64,7 +64,7 @@ export const CabecalhoTabela = styled.thead<Props>`
 
 export const CorpoTabela = styled.tbody<Props>`
  td {
-    width: ${({menuAberto}) => (menuAberto ? '12.00%' : '16.66%')}; 
+    width: ${({menuAberto}) => (menuAberto ? '10.00%' : '16.66%')}; 
     padding: 12px;
     border-bottom: 1px solid #ddd;
     overflow: hidden;
