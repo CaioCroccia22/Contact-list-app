@@ -6,7 +6,7 @@ import { colors } from "../../Style/colors";
  }
 
 export const Menu = styled.div<Props>`
-display: flex;
+  display: flex;
   align-items: center;
   width: 100%;
   height: 10vh;
@@ -14,18 +14,26 @@ display: flex;
   position: fixed; 
   top: 0;
   left: 0;
-  transition: transform 0.3s ease-in-out; 
-  transform: ${({ menuAberto }) => (menuAberto ? 'translateX(350px)' : 'translateX(0)')};
+  // transition: transform 0.3s ease-in-out; 
+  // transform: ${({ menuAberto }) => (menuAberto ? 'translateX(350px)' : 'translateX(0)')};
   z-index: 900;
 
 `
 
 
-export const BotaoHamburguer = styled.div<Props>`
-    cursor: pointer;
-    margin-left: 20px; 
-    z-index: 1100; 
+export const BotaoHamburguer = styled.button<Props>`
+  display: ${({ menuAberto }) => (menuAberto ? 'None' : 'block')};
+  cursor: pointer;
+  margin-left: 20px;
+  z-index: 1100;
+  background: none;
+  border: none;
+  padding: 0;
+  .hamburger-box {
+    width: 40px;
+    height: 24px;
 `;
+
 
 
 export const Sidebar = styled.div<Props>`
@@ -36,12 +44,13 @@ export const Sidebar = styled.div<Props>`
   position: fixed;
   top: 0;
   left: 0;
-  width: 350px; 
+  width: 350px;
   height: 100%;
-  background-color: ${colors.cinza}; 
+  background-color: ${colors.cinza};
   color: white;
   padding: 20px;
   transition: transform 0.3s ease-in-out;
   transform: ${({ menuAberto }) => (menuAberto ? 'translateX(0)' : 'translateX(-100%)')};
-  z-index: 1000; 
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
 `;

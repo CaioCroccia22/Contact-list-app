@@ -6,6 +6,8 @@ type Props = {
     aberto?: boolean
 }
 
+
+
 export const barraLateral = styled.div<Props>`
     display: flex;
     flex-direction: column;
@@ -21,13 +23,27 @@ export const barraLateral = styled.div<Props>`
 
 export const Titulo = styled.div`
     display: flex;
-    align-itens: center;
+    align-items: center;
     justify-content: center;
-    height: 10vh;
-    background-color: ${colors.azul};
-    // margin: 0px 0px 30px 30px;
+    height: 20vh;
+    // background-color: ${colors.azul};
     font-size: 16px;
 `
+
+export const BotaoHamburguer = styled.button<Props>`
+  display: ${({ aberto }) => (aberto ? 'None' : 'block')};
+  margin-right: 30px;
+  cursor: pointer;
+//   margin-left: 20px;
+//   z-index: 1100;
+  background: none;
+  border: none;
+  padding: 0;
+  .hamburger-box {
+    width: 20px;
+    height: 20px;
+`;
+
 
 export const Navegacao = styled.nav`
     width: 100%;

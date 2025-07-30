@@ -6,10 +6,6 @@ type Props = {
 }
 
 
-export const MainCotent = styled.div<Props>`
-    height: 100vh;
-    position: fixed;
-`
 
 export const PaginaLista = styled.div<Props>`
     display: flex;
@@ -21,8 +17,26 @@ export const PaginaLista = styled.div<Props>`
     top: 80px;
     transition: transform 0.3s ease-in-out; 
     transform: ${({ menuAberto }) => (menuAberto ? 'translateX(250px)' : 'translateX(0)')};
+    `
 
-`
+export const Sidebar = styled.div<Props>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 10vh;
+  left: 0;
+  width: 350px;
+  height: 100%;
+  background-color: ${colors.cinza};
+  color: white;
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+  transform: ${({ menuAberto }) => (menuAberto ? 'translateX(0)' : 'translateX(-100%)')};
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+`;
 
 export const Titulo = styled.caption<Props>`
     font-size: 24px;
@@ -46,12 +60,13 @@ export const CabecalhoTabela = styled.thead<Props>`
    tr{
         background-color: red;
         width: 100%;
+        background-color: ${colors.preto}
    }
         th {
             width: ${({menuAberto}) => (menuAberto ? '10.00%' : '16.66%')}; 
             padding: 12px;
-            background-color: #f0f0f0;
-            border-bottom: 2px solid #ddd;
+            color: #f0f0f0;
+            border-bottom: 2px solid #f0f0f0;
             font-weight: bold;
             overflow: hidden; /* Evita que conteúdo longo quebre o layout */
             text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */

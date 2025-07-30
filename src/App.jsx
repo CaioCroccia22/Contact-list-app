@@ -1,17 +1,16 @@
-import React from 'react';
-import ListaDeContato from './Components/Lista de Contatos';
 import { GlobalStyled } from './Style/Styles'
 
 
-const App = () => {
+import ListaDeContato from "./Containers/ListadeContatos";
+
+function App() {
   return (
     <>
-        <GlobalStyled   />
-
-        <ListaDeContato></ListaDeContato>
+      <GlobalStyled   />
+      <ListaDeContato />
     </>
-    
+          
   );
-};
+}
 
 export default App;

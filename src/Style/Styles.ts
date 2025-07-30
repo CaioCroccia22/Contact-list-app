@@ -18,11 +18,12 @@ a{
     cursor: pointer;
 }
 
-body {
+`
+
+export const Container = styled.div`
+    height: 100vh;
+    position: fixed;
     background-color: ${colors.branco};
     width: 100vw;
     height: 100vh
-}
-
-
 `
