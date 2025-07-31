@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../Style/colors";
+import { Link } from "react-router";
+import { motion } from "motion/react"
 
 
 type Props = {
@@ -60,10 +62,23 @@ export const Lista = styled.ul`
     align-itens: center;
     width: 100%;
     height: 35%;
-    // padding: 0px 10px 0px 10px;
+    
     
 `
 
+export const StyledLink = styled(Link)`
+    cursor: pointer;
+    width: 90%;
+    text-decoration: none;
+    padding: 0px 10px 0px 10px;
+
+`
+
+export const MenuButton = styled(motion.button)`
+    width: 90%;
+    border: 1px ${colors.brancoEscuro};
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+`
 
 export const listElement = styled.li`
     display: flex;

@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import BarraSuperior from '../BarraSuperior';
 import * as S from './style'
-import { useSelector } from 'react-redux'; 
-import { Container } from '../../Style/Styles';
+import { useDispatch, useSelector } from 'react-redux'; 
+import { Container, Sidebar, Pagina } from '../../Style/Styles';
 import MenuLateral from '../MenuLateral';
+
 
 
 
@@ -11,15 +12,15 @@ import MenuLateral from '../MenuLateral';
     const contatosCadastrados = useSelector((state) => state.contatoReducer)
 
     const menu = useSelector((state) => state.menuReducer.value)
-    
+    const contactDispatch = useDispatch()
 
     return (
-        <Container menuAberto={menu}>  
+        <Container>  
                 <BarraSuperior />
-            <S.Sidebar menuAberto={menu}>
-                <MenuLateral onMenuClick={onMenuClick}></MenuLateral>
-            </S.Sidebar> 
-            <S.PaginaLista  menuAberto={menu}>
+            <Sidebar menuAberto={menu}>
+                <MenuLateral onMenuClick={onMenuClick}/>
+            </Sidebar> 
+            <Pagina  menuAberto={menu}>
                 <S.TabelaContato>
                     <S.Titulo>Contatos</S.Titulo>
                     <S.CabecalhoTabela>
@@ -47,7 +48,7 @@ import MenuLateral from '../MenuLateral';
                         </tr>))}
                     </S.CorpoTabela>
                 </S.TabelaContato>
-            </S.PaginaLista>
+            </Pagina>
         </Container>
     )
 }

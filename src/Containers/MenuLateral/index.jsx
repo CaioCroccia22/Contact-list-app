@@ -1,9 +1,8 @@
 import * as S from './styles'
 // import * from '../../img'
 import homeIcon from '../../img/home.png'
-import listIcon from '../../img/person.png'
-import personAdd from '../../img/person-add.png'
-import setting from '../../img/settings.png'
+import personAdd from '../../img/user.png'
+import setting from '../../img/config.png'
 
 import { motion } from "motion/react"
 import { colors } from '../../Style/colors'
@@ -19,12 +18,11 @@ const MenuLateral = () => {
 
     return (
         <S.barraLateral>
-            <S.Titulo>
-                    <h1>Bem Vindo!!</h1>
-            </S.Titulo>
-                <S.Navegacao>
-                    <S.Lista>
-                        <motion.button 
+            <S.Titulo>Bem Vindo!!</S.Titulo>
+            <S.Navegacao>
+                <S.Lista>
+                    <S.StyledLink to="/">
+                        <S.MenuButton
                         whileHover={{ backgroundColor: `${colors.cinza}`, opacity: 1, scale: 0.95 }}
                         whileTap={{ scale: 0.80 }}
                         whileInView={{ backgroundColor: `${colors.preto}`}}> 
@@ -32,36 +30,30 @@ const MenuLateral = () => {
                                     <a>Home</a>
                                     <img src={homeIcon}/>
                                 </S.listElement>
-                        </motion.button>
-
-                        <motion.button 
+                        </S.MenuButton>
+                    </S.StyledLink>
+                    <S.StyledLink to="/cadastro">
+                        <S.MenuButton
                         whileHover={{ backgroundColor: `${colors.cinza}`, opacity: 1, scale: 0.95 }}
                         whileTap={{ scale: 0.80 }}
                         whileInView={{ backgroundColor: `${colors.preto}`}}> 
-                            <S.listElement>
-                                <Link to="/cadastro">Adicionar Contatos</Link>
-                                <img src={personAdd}/>
-                            </S.listElement>
-                        </motion.button>
-
-                        <motion.button 
-                        whileHover={{ 
-                            backgroundColor: `${colors.cinza}`, opacity: 1, scale: 0.95 
-                        }}
+                                <S.listElement>
+                                    <a>Cadastro Contato</a>
+                                    <img src={personAdd}/>
+                                </S.listElement>
+                        </S.MenuButton>
+                    </S.StyledLink>
+                    <S.StyledLink to="/cadastro">
+                        <S.MenuButton
+                        whileHover={{ backgroundColor: `${colors.cinza}`, opacity: 1, scale: 0.95 }}
                         whileTap={{ scale: 0.80 }}
-                        whileInView={{ backgroundColor: `${colors.preto}`}}
-                        > 
-                            <S.listElement><a>Contatos</a><img src={listIcon}/></S.listElement>
-                        </motion.button>
-                        <motion.button 
-                        whileHover={{ 
-                            backgroundColor: `${colors.cinza}`, opacity: 1, scale: 0.95 
-                        }}
-                        whileTap={{ scale: 0.80 }}
-                        whileInView={{ backgroundColor: `${colors.preto}`}}
-                        > 
-                            <S.listElement><a>Configurações</a><img src={setting}/></S.listElement>
-                        </motion.button>
+                        whileInView={{ backgroundColor: `${colors.preto}`}}> 
+                                <S.listElement>
+                                    <a>Configuração</a>
+                                    <img src={setting}/>
+                                </S.listElement>
+                        </S.MenuButton>
+                    </S.StyledLink>
                     </S.Lista>
                 </S.Navegacao>
         </S.barraLateral>
