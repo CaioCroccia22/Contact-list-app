@@ -6,6 +6,7 @@ import App from './App'
 import {Cadastro} from './Containers/Cadastro'
 import { Provider } from 'react-redux';
 import { Store } from './Store/Store';
+import { GlobalStyled } from './Style/Styles'
 // import Cadastro from './Containers/Cadastro/index'
 
 
@@ -13,6 +14,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
           <Provider store={Store}>
             <BrowserRouter>
+              <GlobalStyled   />
               <Routes>
                   <Route path="/" element={<App />} />
                   <Route path="cadastro" element={<Cadastro/>} />

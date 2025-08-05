@@ -32,19 +32,19 @@ export const Titulo = styled.div`
     font-size: 16px;
 `
 
-export const BotaoHamburguer = styled.button<Props>`
-  display: ${({ aberto }) => (aberto ? 'None' : 'block')};
-  margin-right: 30px;
-  cursor: pointer;
-//   margin-left: 20px;
-//   z-index: 1100;
-  background: none;
-  border: none;
-  padding: 0;
-  .hamburger-box {
-    width: 20px;
-    height: 20px;
-`;
+// export const BotaoHamburguer = styled.button<Props>`
+//   display: ${({ aberto }) => (aberto ? 'None' : 'block')};
+//   margin-right: 30px;
+//   cursor: pointer;
+// //   margin-left: 20px;
+// //   z-index: 1100;
+//   background: none;
+//   border: none;
+//   padding: 0;
+//   .hamburger-box {
+//     width: 20px;
+//     height: 20px;
+// `;
 
 
 export const Navegacao = styled.nav`
@@ -52,30 +52,29 @@ export const Navegacao = styled.nav`
     height: 100%;
     display: flex;
     justify-content: center;
+
+    
 `
 
 export const Lista = styled.ul`
     margin-top: 20px;
+    width: 100%;
+    height: 45%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-itens: center;
-    width: 100%;
-    height: 35%;
-    
-    
+    gap: 30px;
 `
 
 export const StyledLink = styled(Link)`
     cursor: pointer;
-    width: 90%;
+    width: 100%;
     text-decoration: none;
     padding: 0px 10px 0px 10px;
 
 `
 
 export const MenuButton = styled(motion.button)`
-    width: 90%;
+    width: 100%;
     border: 1px ${colors.brancoEscuro};
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
 `

@@ -12,6 +12,7 @@ export const GlobalStyled = createGlobalStyle`
     margin: 0;
     box-sizing: border-box;
     list-style: none;
+    font-family: "Roboto Mono", monospace;
 
     
 }
@@ -39,7 +40,7 @@ export const Pagina = styled.div<Props>`
     position: fixed;
     top: 80px;
     transition: transform 0.3s ease-in-out; 
-    transform: ${({ menuAberto }) => (menuAberto ? 'translateX(250px)' : 'translateX(0)')};
+    transform: ${({ menuAberto }) => (menuAberto ? 'translateX(20%)' : 'translateX(0)')};
 `
 
 export const Sidebar = styled.div<Props>`
