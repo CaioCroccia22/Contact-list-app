@@ -55,3 +55,19 @@ export const CorpoTabela = styled.tbody<Props>`
     white-space: nowrap;
   }
 `
+export const BotaoUtilitario = styled.button`
+    padding: 5px;
+    border-radius: 20px;
+    border: none;
+    margin: 7px;
+    color: ${colors.branco};
+    background-color: ${colors.cinza};
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; 
+    
+
+    :hover{
+        transform: scale(1.1) rotate(5deg);
+    }
+
+`

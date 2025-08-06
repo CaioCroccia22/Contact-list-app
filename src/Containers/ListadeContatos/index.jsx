@@ -4,6 +4,7 @@ import * as S from './style'
 import { useDispatch, useSelector } from 'react-redux'; 
 import { Container, Sidebar, Pagina } from '../../Style/Styles';
 import MenuLateral from '../MenuLateral';
+import {remover} from '../../Store/Contatos'
 
 
 
@@ -13,6 +14,11 @@ import MenuLateral from '../MenuLateral';
 
     const menu = useSelector((state) => state.menuReducer.value)
     const contactDispatch = useDispatch()
+    const [editId, setEditId] = useState(null)
+
+    function getContactId(id){
+        setEditId(id)
+    }
 
     return (
         <Container>  
@@ -36,15 +42,44 @@ import MenuLateral from '../MenuLateral';
                     <S.CorpoTabela>
                         {contatosCadastrados.itens.map((item) => (
                         <tr key={item.id}>
-                            <td>{item.id}</td>
+                            <td>
+                                {editId === item.id ? (
+                                    <input
+                                    type='text'
+                                    defaultValue={item.id}
+                                    OnChange={(e) => (e.target.value)}
+                                    />
+                            
+                                ): ( item.id ) }
+                            </td>
+                            <td>
+                                {editId === item.id ? (
+                                    <input
+                                    type='text'
+                                    defaultValue={item.nome}
+                                    OnChange={(e) => (e.target.value)}
+                                    />
+                                ) : ( item.nome ) }
+                            </td>
+                            <td>
+                                {editId === item.id ? 
+                                (
+                                <S.BotaoUtilitario>Salvar</S.BotaoUtilitario>
+                                ) 
+                                : 
+                                (
+                                <S.BotaoUtilitario onClick={getContactId(item.id)}>Editar</S.BotaoUtilitario>
+                                )}
+                            </td>
+                            {/* <td>{item.id}</td>
                             <td>{item.nome}</td>
                             <td>{item.endereco}</td>
                             <td>{item.email}</td>
                             <td>{item.telefone}</td>
                             <td>
-                            <button>Editar</button>
-                            <button>Excluir</button>
-                            </td>
+                            
+                            <S.BotaoUtilitario onClick={() => contactDispatch(remover(item))}>Excluir</S.BotaoUtilitario>
+                            </td> */}
                         </tr>))}
                     </S.CorpoTabela>
                 </S.TabelaContato>

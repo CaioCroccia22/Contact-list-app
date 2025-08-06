@@ -34,9 +34,15 @@ export const contatoSlice = createSlice({
                 id: getUltimoContato ? getUltimoContato.id + 1 : 1
             }
             state.itens.push(novoContato)
+        },
+        remover: (state, action: PayloadAction<ContatoClass>) => {
+            const getContatosLenght = state.itens.length
+            if (getContatosLenght > 0){
+                state.itens = state.itens.filter(item => item.id != action.payload.id)
+            }
         }
     }
 })
 
-export const { adicionar } = contatoSlice.actions;
+export const { adicionar, remover } = contatoSlice.actions;
 export default contatoSlice.reducer;
