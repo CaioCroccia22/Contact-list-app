@@ -40,6 +40,9 @@ export const contatoSlice = createSlice({
             if (getContatosLenght > 0){
                 state.itens = state.itens.filter(item => item.id != action.payload.id)
             }
+        },
+        editar: (state, action: PayloadAction<ContatoClass>) => {
+            state.itens.push(action.payload)
         }
     }
 })
