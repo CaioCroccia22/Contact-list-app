@@ -115,15 +115,39 @@ import {remover, editar} from '../../Store/Contatos'
                                 {editContato.id === item.id ? 
                                 (
                                 <>
-                                <S.BotaoUtilitario onClick={() => handleAction(editContato)}>Salvar</S.BotaoUtilitario>
-                                <S.BotaoUtilitario onClick={() => cancel(item.id)}>Cancelar</S.BotaoUtilitario>
+                                <S.BotaoUtilitario 
+                                    onClick={() => handleAction(editContato)}
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    >
+                                        Salvar
+                                    </S.BotaoUtilitario>
+                                <S.BotaoUtilitario 
+                                    onClick={() => cancel(item.id)}
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    >
+                                        Cancelar
+                                    </S.BotaoUtilitario>
                                 </>
                                 ) 
                                 : 
                                 (
                                 <>
-                                <S.BotaoUtilitario onClick={() => getContactId(item.id)}>Editar</S.BotaoUtilitario>
-                                <S.BotaoUtilitario onClick={() => contactDispatch(remover(item))}>Excluir</S.BotaoUtilitario> 
+                                <S.BotaoUtilitario 
+                                    onClick={() => getContactId(item.id)}
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    >
+                                        Editar
+                                </S.BotaoUtilitario>
+                                <S.BotaoUtilitario 
+                                    onClick={() => contactDispatch(remover(item))}
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    >
+                                        Excluir
+                                </S.BotaoUtilitario> 
                                 </>  
                                 )}
                             </td>

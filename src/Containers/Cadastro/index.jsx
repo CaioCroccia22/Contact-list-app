@@ -3,10 +3,9 @@ import { Container, Sidebar, Pagina } from '../../Style/Styles';
 import BarraSuperior from "../BarraSuperior"
 import MenuLateral from "../MenuLateral"
 import * as S from './style'
-import { Link } from "react-router";
 import {adicionar} from '../../Store/Contatos'
 import { useState } from "react";
-import { ContatoClass } from "../../API/Contato";
+
 
 export const Cadastro = ({onMenuClick}) => {
     const Contato = useSelector((state) => state.contatoReducer.itens)
@@ -78,7 +77,12 @@ export const Cadastro = ({onMenuClick}) => {
                         name="telefone"
                         />
                 </S.Formulario>
-                <button onClick={SubmitForm}>Clique aqui</button>
+                <S.BotaoUtilitario 
+                    onClick={SubmitForm}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}>
+                     Cadastrar      
+                </S.BotaoUtilitario>
             </Pagina>
         </Container>
     )

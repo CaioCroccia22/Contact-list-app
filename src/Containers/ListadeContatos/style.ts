@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../Style/colors";
+import { motion } from "motion/react"
 
 type Props = {
     menuAberto: boolean;
@@ -55,7 +56,7 @@ export const CorpoTabela = styled.tbody<Props>`
     white-space: nowrap;
   }
 `
-export const BotaoUtilitario = styled.button`
+export const BotaoUtilitario = styled(motion.button)`
     padding: 5px;
     border-radius: 20px;
     border: none;
