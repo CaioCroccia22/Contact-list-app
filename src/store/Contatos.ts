@@ -42,10 +42,16 @@ export const contatoSlice = createSlice({
             }
         },
         editar: (state, action: PayloadAction<ContatoClass>) => {
-            state.itens.push(action.payload)
+            const Contato = state.itens.find((item) => item.id === action.payload.id)
+            if(Contato) {
+                Contato.nome = action.payload.nome
+                Contato.endereco = action.payload.endereco
+                Contato.email = action.payload.email
+                Contato.telefone = action.payload.telefone
+            }
         }
     }
 })
 
-export const { adicionar, remover } = contatoSlice.actions;
+export const { adicionar, remover, editar } = contatoSlice.actions;
 export default contatoSlice.reducer;

@@ -4,20 +4,50 @@ import * as S from './style'
 import { useDispatch, useSelector } from 'react-redux'; 
 import { Container, Sidebar, Pagina } from '../../Style/Styles';
 import MenuLateral from '../MenuLateral';
-import {remover} from '../../Store/Contatos'
+import {remover, editar} from '../../Store/Contatos'
 
 
 
 
- const listaDeContato = ({onMenuClick}) => {
+ const ListaDeContato = ({onMenuClick}) => {
     const contatosCadastrados = useSelector((state) => state.contatoReducer)
 
     const menu = useSelector((state) => state.menuReducer.value)
     const contactDispatch = useDispatch()
-    const [editId, setEditId] = useState(null)
+    const [editContato, setContato] = useState({
+        id: '',
+        nome: '',
+        endereco: '',
+        email: '',
+        telefone: '',
+    })
 
     function getContactId(id){
-        setEditId(id)
+        const getContato = contatosCadastrados.itens.find((index) => index.id === id)
+        setContato(getContato)
+    }
+
+    function handleAction(editContato){
+        console.log(editContato)
+        contactDispatch(editar(editContato))
+        setContato({
+        id: '',
+        nome: '',
+        endereco: '',
+        email: '',
+        telefone: '',
+    })
+        
+    }
+
+    function cancel(){
+        setContato({
+        id: '',
+        nome: '',
+        endereco: '',
+        email: '',
+        telefone: '',
+    })
     }
 
     return (
@@ -43,32 +73,58 @@ import {remover} from '../../Store/Contatos'
                         {contatosCadastrados.itens.map((item) => (
                         <tr key={item.id}>
                             <td>
-                                {editId === item.id ? (
-                                    <input
-                                    type='text'
-                                    defaultValue={item.id}
-                                    OnChange={(e) => (e.target.value)}
-                                    />
-                            
-                                ): ( item.id ) }
+                                { item.id }
                             </td>
                             <td>
-                                {editId === item.id ? (
+                                {editContato.id === item.id ? (
                                     <input
                                     type='text'
-                                    defaultValue={item.nome}
-                                    OnChange={(e) => (e.target.value)}
+                                    value={editContato.nome}
+                                    onChange={(e) => setContato({...editContato, nome: e.target.value})}
                                     />
                                 ) : ( item.nome ) }
                             </td>
+                            <td >
+                                { editContato.id === item.id ? (
+                                    <input
+                                    type='text'
+                                    value={editContato.endereco}
+                                    onChange={(e) => setContato({...editContato, endereco: e.target.value})}
+                                    />
+                                ) : ( item.endereco )}
+                            </td>
                             <td>
-                                {editId === item.id ? 
+                                { editContato.id === item.id ? (
+                                    <input
+                                    type='text'
+                                    value={editContato.email}
+                                    onChange={(e) => setContato({...editContato, email: e.target.value})}
+                                    />
+                                ) : ( item.email )}
+                            </td>
+                            <td>
+                                { editContato.id === item.id ? (
+                                    <input
+                                    type='text'
+                                    value={editContato.telefone}
+                                    onChange={(e) => setContato({...editContato, telefone: e.target.value})}
+                                    />
+                                ) : ( item.telefone )}
+                            </td>
+                            <td>
+                                {editContato.id === item.id ? 
                                 (
-                                <S.BotaoUtilitario>Salvar</S.BotaoUtilitario>
+                                <>
+                                <S.BotaoUtilitario onClick={() => handleAction(editContato)}>Salvar</S.BotaoUtilitario>
+                                <S.BotaoUtilitario onClick={() => cancel(item.id)}>Cancelar</S.BotaoUtilitario>
+                                </>
                                 ) 
                                 : 
                                 (
-                                <S.BotaoUtilitario onClick={getContactId(item.id)}>Editar</S.BotaoUtilitario>
+                                <>
+                                <S.BotaoUtilitario onClick={() => getContactId(item.id)}>Editar</S.BotaoUtilitario>
+                                <S.BotaoUtilitario onClick={() => contactDispatch(remover(item))}>Excluir</S.BotaoUtilitario> 
+                                </>  
                                 )}
                             </td>
                             {/* <td>{item.id}</td>
@@ -89,4 +145,4 @@ import {remover} from '../../Store/Contatos'
 }
 
 
-export default listaDeContato
+export default ListaDeContato
